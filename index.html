@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="A responsive glassmorphism cherry-plum calculator with keyboard support, local history, copy result, and theme toggle."
+  />
+  <title>Cherry Glass Calculator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="ambient" aria-hidden="true"></div>
+
+  <main class="app-shell" aria-labelledby="appTitle">
+    <section class="calculator-card" aria-label="Calculator">
+      <div class="brand-row">
+        <div>
+          <p class="eyebrow">Cherry Glass</p>
+          <h1 id="appTitle">Calculator</h1>
+        </div>
+
+        <button class="icon-button" id="themeToggle" type="button" aria-label="Switch to dark cherry mode">
+          <span class="theme-icon" aria-hidden="true">◐</span>
+        </button>
+      </div>
+
+      <div class="display-panel" aria-live="polite">
+        <div class="expression-line" id="expressionDisplay" aria-label="Current expression">0</div>
+        <div class="result-line" id="resultDisplay" aria-label="Result">0</div>
+      </div>
+
+      <div class="utility-row" aria-label="Calculator utilities">
+        <button class="utility-button" id="copyResult" type="button">Copy Result</button>
+        <button class="utility-button history-toggle" id="historyToggle" type="button" aria-expanded="false" aria-controls="historyPanel">
+          History
+        </button>
+      </div>
+
+      <div class="keypad" aria-label="Calculator keypad">
+        <button class="key key-danger" type="button" data-action="clear">AC</button>
+        <button class="key key-soft" type="button" data-action="delete">DEL</button>
+        <button class="key key-soft" type="button" data-value="%">%</button>
+        <button class="key key-operator" type="button" data-value="/">÷</button>
+
+        <button class="key" type="button" data-value="7">7</button>
+        <button class="key" type="button" data-value="8">8</button>
+        <button class="key" type="button" data-value="9">9</button>
+        <button class="key key-operator" type="button" data-value="*">×</button>
+
+        <button class="key" type="button" data-value="4">4</button>
+        <button class="key" type="button" data-value="5">5</button>
+        <button class="key" type="button" data-value="6">6</button>
+        <button class="key key-operator" type="button" data-value="-">−</button>
+
+        <button class="key" type="button" data-value="1">1</button>
+        <button class="key" type="button" data-value="2">2</button>
+        <button class="key" type="button" data-value="3">3</button>
+        <button class="key key-operator" type="button" data-value="+">+</button>
+
+        <button class="key key-zero" type="button" data-value="0">0</button>
+        <button class="key" type="button" data-value=".">.</button>
+        <button class="key key-equals" type="button" data-action="calculate">=</button>
+      </div>
+    </section>
+
+    <aside class="history-panel" id="historyPanel" aria-label="Calculation history">
+      <div class="history-header">
+        <div>
+          <p class="eyebrow">Saved Locally</p>
+          <h2>History</h2>
+        </div>
+        <button class="utility-button" id="clearHistory" type="button">Clear History</button>
+      </div>
+
+      <ul class="history-list" id="historyList" aria-label="Previous calculations"></ul>
+      <p class="empty-history" id="emptyHistory">No calculations yet.</p>
+    </aside>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
